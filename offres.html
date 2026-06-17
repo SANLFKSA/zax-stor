@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres Abonnements - ZAX STORE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #e50914;
+            --primary-glow: rgba(229, 9, 20, 0.45);
+            --bg-body: #050507;
+            --bg-panel: #0d0d0f;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(229, 9, 20, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(229, 9, 20, 0.04) 0px, transparent 50%);
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #f3f4f6;
+        }
+
+        .netflix-font {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(13, 13, 16, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(229, 9, 20, 0.25);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* Recommended card glowing border */
+        .premium-card {
+            background: rgba(18, 11, 12, 0.85);
+            border: 2px solid rgba(229, 9, 20, 0.5);
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .premium-card:hover {
+            border-color: rgba(229, 9, 20, 0.8);
+            box-shadow: 0 20px 45px -10px rgba(229, 9, 20, 0.35);
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        /* Button hover pulses */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(229, 9, 20, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(229, 9, 20, 0.65);
+                transform: scale(1.02);
+            }
+        }
+        .pulse-btn:hover {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="pb-24 min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="w-full py-4 px-6 border-b border-zinc-900 bg-black/60 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <svg class="w-8 h-8 text-red-600 fill-current drop-shadow-[0_0_8px_rgba(229,9,20,0.6)] group-hover:scale-105 transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="6" fill="#E50914" />
+                <path d="M9.5 7.5V16.5L16.5 12L9.5 7.5Z" fill="white" />
+            </svg>
+            <span class="netflix-font text-2xl md:text-3xl text-white tracking-widest leading-none">ZAX<span class="text-red-600">STORE</span></span>
+        </a>
+        <div class="flex items-center gap-5">
+            <a href="https://www.instagram.com/nza_lala1" target="_blank" class="text-zinc-400 hover:text-red-500 transition-colors duration-250">
+                <i class="fab fa-instagram text-2xl"></i>
+            </a>
+            <a href="https://wa.me/212663883633" target="_blank" class="text-zinc-400 hover:text-green-500 transition-colors duration-250">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 max-w-6xl flex-grow">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <div class="flex flex-wrap justify-center gap-3 mb-6 text-[10px] md:text-xs">
+                <span class="flex items-center gap-1.5 bg-neutral-900/80 px-3.5 py-1.5 rounded-full border border-neutral-800 text-zinc-300">
+                    <i class="fas fa-shield-alt text-green-500"></i> ✅ Garantie
+                </span>
+                <span class="flex items-center gap-1.5 bg-neutral-900/80 px-3.5 py-1.5 rounded-full border border-neutral-800 text-zinc-300">
+                    <i class="fas fa-bolt text-yellow-500"></i> ⚡ Activation 15 min
+                </span>
+                <span class="flex items-center gap-1.5 bg-neutral-900/80 px-3.5 py-1.5 rounded-full border border-neutral-800 text-zinc-300">
+                    <i class="fas fa-lock text-red-500"></i> 🔒 Paiement sécurisé
+                </span>
+            </div>
+            
+            <h2 class="netflix-font text-5xl md:text-7xl font-extrabold tracking-wide uppercase italic text-white drop-shadow-lg">
+                Nos Abonnements
+            </h2>
+            <div class="w-24 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+            <p class="text-zinc-400 mt-4 max-w-md mx-auto text-sm leading-relaxed">
+                Profitez de la meilleure qualité de visionnage Netflix sans interruptions, garantie à 100% durant toute la durée de votre pack.
+            </p>
+        </header>
+
+        <!-- Pricing Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-24">
+            
+            <!-- Basique (1 Mois) -->
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden group min-h-[460px]">
+                <div class="absolute -right-8 -top-8 text-zinc-900/10 text-8xl pointer-events-none group-hover:text-zinc-800/10 transition-colors">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                
+                <div>
+                    <span class="text-zinc-500 uppercase text-[9px] font-black tracking-widest block mb-1">Entrée de gamme</span>
+                    <h3 class="text-xl font-bold text-white tracking-wide">Basique</h3>
+                    
+                    <div class="flex items-baseline mt-6 mb-8">
+                        <span class="text-5xl font-black text-white italic tracking-tight">30</span>
+                        <span class="text-lg font-black text-red-600 ml-1">DH</span>
+                        <span class="text-zinc-500 text-xs ml-2 uppercase font-semibold">/ 1 Mois</span>
+                    </div>
+                    
+                    <ul class="space-y-4 text-xs text-zinc-400 text-left border-t border-zinc-900/60 pt-6">
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-950/40 border border-red-900/30 rounded-lg flex items-center justify-center text-red-500 text-[10px]">
+                                <i class="fas fa-tv"></i>
+                            </span>
+                            <span>Qualité Ultra HD 4K HDR</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-950/40 border border-red-900/30 rounded-lg flex items-center justify-center text-red-500 text-[10px]">
+                                <i class="fas fa-shield-alt"></i>
+                            </span>
+                            <span>Garantie 30 Jours Complète</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-10">
+                    <a href="https://wa.me/212663883633?text=Bonjour%20ZAX%20STORE,%20je%20souhaite%20commander%20le%20pack%20Basique%20(1%20Mois)%20à%2030%20DH." target="_blank" class="block w-full text-center bg-zinc-900 hover:bg-red-600 text-zinc-300 hover:text-white font-bold py-4 rounded-2xl transition-all border border-zinc-800 hover:border-red-600">
+                        COMMANDER
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profil Privé (3 Mois) -->
+            <div class="premium-card p-10 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden min-h-[500px] scale-100 md:scale-105 z-10">
+                <div class="absolute top-0 right-0 bg-red-600 text-white text-[9px] uppercase font-black tracking-widest px-5 py-2.5 rounded-bl-2xl shadow-md animate-pulse">
+                    ★ RECOMMANDÉ
+                </div>
+                
+                <div>
+                    <span class="text-red-500 uppercase text-[9px] font-black tracking-widest block mb-1">Le choix populaire</span>
+                    <h3 class="text-2xl font-black text-white tracking-wide uppercase italic">Profil Privé</h3>
+                    
+                    <div class="flex items-baseline mt-6 mb-8">
+                        <span class="text-6xl font-black text-red-600 italic tracking-tight">70</span>
+                        <span class="text-xl font-black text-white ml-1">DH</span>
+                        <span class="text-zinc-400 text-xs ml-2 uppercase font-semibold">/ 3 Mois</span>
+                    </div>
+                    
+                    <ul class="space-y-4 text-xs text-zinc-200 text-left border-t border-red-950/50 pt-6">
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-600/30 border border-red-600/50 rounded-lg flex items-center justify-center text-red-400 text-[10px]">
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <span class="font-bold text-white">Votre Profil Personnel dédié</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-600/30 border border-red-600/50 rounded-lg flex items-center justify-center text-red-400 text-[10px]">
+                                <i class="fas fa-shield-alt"></i>
+                            </span>
+                            <span class="font-medium">Garantie 90 Jours Complète</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-10">
+                    <a href="https://wa.me/212663883633?text=Bonjour%20ZAX%20STORE,%20je%20souhaite%20commander%20le%20pack%20Profil%20Privé%20(3%20Mois)%20à%2070%20DH." target="_blank" class="pulse-btn block w-full text-center bg-red-600 text-white font-black py-4.5 rounded-2xl shadow-xl shadow-red-900/40 transition-all text-sm tracking-wider">
+                        COMMANDER
+                    </a>
+                </div>
+            </div>
+
+            <!-- Compte Full (6 Mois) -->
+            <div class="glass-card p-8 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden group min-h-[460px]">
+                <div class="absolute -right-8 -top-8 text-zinc-900/10 text-8xl pointer-events-none group-hover:text-zinc-800/10 transition-colors">
+                    <i class="fas fa-crown"></i>
+                </div>
+                
+                <div>
+                    <span class="text-zinc-500 uppercase text-[9px] font-black tracking-widest block mb-1">Longue durée</span>
+                    <h3 class="text-xl font-bold text-white tracking-wide">Compte Full</h3>
+                    
+                    <div class="flex items-baseline mt-6 mb-8">
+                        <span class="text-5xl font-black text-white italic tracking-tight">180</span>
+                        <span class="text-lg font-black text-red-600 ml-1">DH</span>
+                        <span class="text-zinc-500 text-xs ml-2 uppercase font-semibold">/ 6 Mois</span>
+                    </div>
+                    
+                    <ul class="space-y-4 text-xs text-zinc-400 text-left border-t border-zinc-900/60 pt-6">
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-950/40 border border-red-900/30 rounded-lg flex items-center justify-center text-red-500 text-[10px]">
+                                <i class="fas fa-crown"></i>
+                            </span>
+                            <span class="font-semibold text-white">Compte Full Premium</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-5 h-5 bg-red-950/40 border border-red-900/30 rounded-lg flex items-center justify-center text-red-500 text-[10px]">
+                                <i class="fas fa-shield-alt"></i>
+                            </span>
+                            <span>Garantie 180 Jours Complète</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-10">
+                    <a href="https://wa.me/212663883633?text=Bonjour%20ZAX%20STORE,%20je%20souhaite%20commander%20le%20pack%20Compte%20Full%20(6%20Mois)%20à%20180%20DH." target="_blank" class="block w-full text-center bg-zinc-900 hover:bg-red-600 text-zinc-300 hover:text-white font-bold py-4 rounded-2xl transition-all border border-zinc-800 hover:border-red-600">
+                        COMMANDER
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="glass-card p-8 rounded-[2.5rem] relative overflow-hidden border border-zinc-900/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-red-600"></div>
+            <p class="text-zinc-500 uppercase text-[9px] tracking-widest mb-8 font-black text-center md:text-left">Modes de Paiement Acceptés</p>
+            <div class="flex flex-wrap justify-center gap-12 items-center opacity-85">
+                <img src="https://asset.brandfetch.io/idVdMUCSuc/id0Ubp5Mb2.png" class="h-8 object-contain" alt="CIH Bank">
+                <img src="https://play-lh.googleusercontent.com/AhmEWZPSYJSz_6UKUqBFlKln8swOmOn8ukRGCNCL6hvpjTT2ObMrbzIhdW9htQd2Ce0Q" class="h-8 rounded-lg object-contain" alt="Al Barid Bank">
+                <img src="https://th.bing.com/th/id/OIP.ZVmEE-3meeviEYl8qQ2GjQHaD4?w=267&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="h-8 object-contain" alt="Cash Plus">
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-neutral-900 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500">
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-red-600 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" rx="6" fill="#E50914" />
+                        <path d="M9.5 7.5V16.5L16.5 12L9.5 7.5Z" fill="white" />
+                    </svg>
+                    <span class="netflix-font text-xl text-white tracking-widest leading-none">ZAX<span class="text-red-600">STORE</span></span>
+                </a>
+                <p class="text-xs">Le streaming Premium au Maroc.</p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
+                <div class="flex items-center gap-4 text-gray-500 mb-1">
+                    <a href="https://wa.me/212663883633" target="_blank" class="hover:text-green-500 transition-colors"><i class="fab fa-whatsapp text-lg"></i></a>
+                    <a href="https://www.instagram.com/nza_lala1" target="_blank" class="hover:text-red-500 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                </div>
+                <p>&copy; 2026 ZAX STORE. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

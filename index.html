@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAX STORE | Netflix Premium Maroc</title>
+    <meta name="description" content="Abonnement Netflix Premium 4K HDR au Maroc. Activation sous 15 min, garantie 100%, support WhatsApp.">
+    <meta name="keywords" content="netflix maroc, abonnement netflix, netflix premium maroc, zax store">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #e50914;
+            --red-dim: rgba(229,9,20,0.12);
+            --red-glow: rgba(229,9,20,0.35);
+            --bg: #06060a;
+            --surface: rgba(14,14,20,0.75);
+            --border: rgba(255,255,255,0.06);
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: #e8e8f0;
+            overflow-x: hidden;
+        }
+        .zax { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.08em; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
+
+        /* Glass */
+        .glass {
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+        }
+
+        /* Header */
+        .header-blur {
+            background: rgba(6,6,10,0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        /* Hero gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #aaa 60%, #e50914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Cards */
+        .feature-card {
+            background: rgba(12,12,18,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+        }
+        .feature-card:hover {
+            border-color: rgba(229,9,20,0.3);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6), 0 0 30px rgba(229,9,20,0.08);
+            transform: translateY(-6px);
+        }
+
+        /* FAQ */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; opacity: 0; }
+        .faq-open .faq-answer { max-height: 300px; opacity: 1; }
+        .faq-open .faq-chevron { transform: rotate(180deg); color: var(--red); }
+        .faq-chevron { transition: transform 0.3s ease, color 0.3s ease; }
+        .faq-item { cursor: pointer; border: 1px solid rgba(255,255,255,0.05); background: rgba(12,12,18,0.5); border-radius: 1rem; transition: border-color 0.3s; }
+        .faq-item:hover { border-color: rgba(229,9,20,0.2); }
+        .faq-open { border-color: rgba(229,9,20,0.25) !important; }
+
+        /* Avis cards */
+        .avis-card {
+            background: rgba(12,12,18,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
+            transition: all 0.35s;
+        }
+        .avis-card:hover { border-color: rgba(229,9,20,0.2); transform: translateY(-4px); }
+
+        /* CTA Button */
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            transition: all 0.25s;
+        }
+        .btn-red:hover { background: #c8080f; box-shadow: 0 0 28px rgba(229,9,20,0.45); transform: translateY(-1px); }
+
+        .btn-ghost {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            border-radius: 0.75rem;
+            transition: all 0.25s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        /* Steps */
+        .step-num {
+            width: 3rem; height: 3rem;
+            border: 2px solid rgba(229,9,20,0.4);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--red);
+            background: rgba(229,9,20,0.05);
+        }
+
+        /* Noise overlay on hero */
+        .hero-grain::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Floating WA */
+        .wa-float {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+            width: 3.25rem; height: 3.25rem;
+            background: #25D366; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: all 0.25s;
+        }
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+        .wa-tooltip {
+            position: absolute; right: 3.75rem; top: 50%; transform: translateY(-50%);
+            background: #111; border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; font-size: 0.7rem; font-weight: 600;
+            padding: 0.4rem 0.85rem; border-radius: 0.5rem;
+            white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+        }
+        .wa-float:hover .wa-tooltip { opacity: 1; }
+
+        @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition-duration: 0.01ms !important; } }
+    </style>
+</head>
+<body class="selection:bg-red-700 selection:text-white">
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 header-blur transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5 group" aria-label="ZAX STORE accueil">
+            <svg class="w-8 h-8 drop-shadow-[0_0_10px_rgba(229,9,20,0.55)] group-hover:scale-105 transition-transform" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="#E50914"/>
+                <path d="M12 9v14l12-7z" fill="white"/>
+            </svg>
+            <span class="zax text-[1.65rem] text-white leading-none">ZAX<span class="text-red-600">STORE</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium" aria-label="Navigation principale">
+            <a href="#" class="text-white hover:text-red-500 transition-colors">Accueil</a>
+            <a href="#avantages" class="text-zinc-400 hover:text-white transition-colors">Avantages</a>
+            <a href="#processus" class="text-zinc-400 hover:text-white transition-colors">Commander</a>
+            <a href="#avis" class="text-zinc-400 hover:text-white transition-colors">Avis</a>
+            <a href="#faq" class="text-zinc-400 hover:text-white transition-colors">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <div class="hidden sm:flex items-center gap-3 text-zinc-400">
+                <a href="https://www.instagram.com/nza_lala1" target="_blank" rel="noopener" class="hover:text-red-500 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://wa.me/212697999710" target="_blank" rel="noopener" class="hover:text-green-400 transition-colors"><i class="fab fa-whatsapp text-lg"></i></a>
+            </div>
+            <a href="offres.html" class="btn-red px-5 py-2.5 text-sm hidden sm:inline-flex items-center gap-2">
+                <i class="fas fa-fire text-xs opacity-80"></i> Voir les offres
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-grain">
+    <!-- Background layers -->
+    <div class="absolute inset-0 bg-[#06060a]"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(229,9,20,0.12) 0%, transparent 70%);"></div>
+    <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#06060a] to-transparent z-10"></div>
+
+    <!-- Grid lines accent -->
+    <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(229,9,20,1) 1px, transparent 1px), linear-gradient(90deg, rgba(229,9,20,1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-12">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-red-950/40 border border-red-900/50 rounded-full px-4 py-1.5 mb-8">
+            <span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
+            <span class="text-red-400 text-xs font-semibold tracking-widest uppercase">N°1 au Maroc · Streaming Premium</span>
+        </div>
+
+        <h1 class="zax text-[5.5rem] sm:text-[8rem] md:text-[10rem] leading-none tracking-tight text-white mb-2 drop-shadow-2xl" style="text-shadow: 0 0 80px rgba(229,9,20,0.25);">
+            ZAX<span class="text-red-600">STORE</span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl font-light text-zinc-300 max-w-2xl mx-auto mt-4 leading-relaxed">
+            Netflix Premium <span class="text-white font-semibold">4K HDR</span> au Maroc —<br class="hidden sm:block"> activé en moins de 15 minutes.
+        </p>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap justify-center gap-3 mt-8 text-xs">
+            <span class="flex items-center gap-2 bg-black/40 border border-white/8 rounded-full px-4 py-2 text-zinc-300">
+                <i class="fas fa-shield-alt text-green-400"></i> Garantie 100%
+            </span>
+            <span class="flex items-center gap-2 bg-black/40 border border-white/8 rounded-full px-4 py-2 text-zinc-300">
+                <i class="fas fa-bolt text-yellow-400"></i> Activation 15 min
+            </span>
+            <span class="flex items-center gap-2 bg-black/40 border border-white/8 rounded-full px-4 py-2 text-zinc-300">
+                <i class="fab fa-whatsapp text-green-400"></i> Support Darija & Français
+            </span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+            <a href="offres.html" class="btn-red px-9 py-4 text-base w-full sm:w-auto text-center">
+                Voir les offres <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </a>
+            <a href="#avis" class="btn-ghost px-9 py-4 text-base w-full sm:w-auto text-center font-medium">
+                Avis clients
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 opacity-40">
+        <span class="text-[10px] uppercase tracking-widest text-zinc-500">Découvrir</span>
+        <i class="fas fa-chevron-down text-zinc-500 text-xs animate-bounce"></i>
+    </div>
+</section>
+
+<!-- AVANTAGES -->
+<section id="avantages" class="py-28 px-6 max-w-7xl mx-auto relative">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-900/6 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="text-center mb-16">
+        <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-3">Pourquoi nous choisir</p>
+        <h2 class="text-3xl md:text-5xl font-black text-white">L'excellence du streaming</h2>
+        <p class="text-zinc-400 mt-4 max-w-lg mx-auto text-sm leading-relaxed">Un service fiable, rapide et local — pensé pour les clients marocains.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="feature-card p-7 flex flex-col h-full">
+            <div class="w-12 h-12 rounded-xl bg-red-950/50 border border-red-900/30 flex items-center justify-center mb-5">
+                <i class="fas fa-tv text-red-500"></i>
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Ultra HD 4K HDR</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed flex-grow">Films, séries et animés en résolution maximale avec son Dolby Atmos.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card p-7 flex flex-col h-full">
+            <div class="w-12 h-12 rounded-xl bg-red-950/50 border border-red-900/30 flex items-center justify-center mb-5">
+                <i class="fas fa-bolt text-yellow-500"></i>
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Activation Express</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed flex-grow">Vos accès envoyés par WhatsApp en moins de 15 min après paiement.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card p-7 flex flex-col h-full">
+            <div class="w-12 h-12 rounded-xl bg-red-950/50 border border-red-900/30 flex items-center justify-center mb-5">
+                <i class="fas fa-shield-alt text-green-500"></i>
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Garantie Totale</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed flex-grow">Problème de profil ? On résout ou on remplace immédiatement, sur toute la durée.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="feature-card p-7 flex flex-col h-full">
+            <div class="w-12 h-12 rounded-xl bg-red-950/50 border border-red-900/30 flex items-center justify-center mb-5">
+                <i class="fab fa-whatsapp text-green-400"></i>
+            </div>
+            <h3 class="font-bold text-white text-base mb-2">Support Local</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed flex-grow">Équipe marocaine disponible sur WhatsApp en Darija et Français.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESSUS -->
+<section id="processus" class="py-28 px-6 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(229,9,20,0.05) 0%, transparent 60%);"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-3">Simple & Rapide</p>
+            <h2 class="text-3xl md:text-5xl font-black text-white">3 étapes pour profiter</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+            <!-- Connector line desktop -->
+            <div class="hidden md:block absolute top-6 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-red-900/40 to-transparent"></div>
+
+            <div class="flex flex-col items-center text-center gap-4">
+                <div class="step-num">1</div>
+                <h3 class="font-bold text-white">Choisissez votre offre</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">1 mois, 3 mois ou 6 mois — au tarif le plus bas du marché marocain.</p>
+            </div>
+            <div class="flex flex-col items-center text-center gap-4">
+                <div class="step-num">2</div>
+                <h3 class="font-bold text-white">Réglez en toute sécurité</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">CIH, Al Barid Bank, Cash Plus ou Wafacash — selon votre convenance.</p>
+            </div>
+            <div class="flex flex-col items-center text-center gap-4">
+                <div class="step-num">3</div>
+                <h3 class="font-bold text-white">Activez & Profitez</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Recevez email, mot de passe et code profil instantanément sur WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-14">
+            <a href="offres.html" class="btn-red inline-flex items-center gap-2 px-9 py-4 text-base">
+                Choisir mon abonnement <i class="fas fa-arrow-right text-sm"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis" class="py-28 px-6 max-w-7xl mx-auto relative">
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-900/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="text-center mb-16">
+        <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-3">Témoignages</p>
+        <h2 class="text-3xl md:text-5xl font-black text-white">Ce que disent nos clients</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="avis-card p-7 flex flex-col justify-between">
+            <div>
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-zinc-300 text-sm leading-relaxed italic">"Service bzaf d l-khir! Khdit 3 mois u khddam lia bla hta mouchkil. Activation f 10 min u support WhatsApp dima m3ak."</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-3">
+                <div class="w-9 h-9 bg-red-950/60 rounded-full flex items-center justify-center text-red-400 font-bold text-sm">Y</div>
+                <div>
+                    <p class="text-white font-semibold text-sm">Youssef B.</p>
+                    <p class="text-zinc-500 text-xs">Casablanca</p>
+                </div>
+            </div>
+        </div>
+        <div class="avis-card p-7 flex flex-col justify-between border-red-900/20">
+            <div>
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-zinc-300 text-sm leading-relaxed italic">"Abonnement officiel stable u la-garantie hta l-kher. Mafihch l-kdoub bhal chi wahdin. Merhba bikum!"</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-3">
+                <div class="w-9 h-9 bg-red-950/60 rounded-full flex items-center justify-center text-red-400 font-bold text-sm">A</div>
+                <div>
+                    <p class="text-white font-semibold text-sm">Amina K.</p>
+                    <p class="text-zinc-500 text-xs">Rabat</p>
+                </div>
+            </div>
+        </div>
+        <div class="avis-card p-7 flex flex-col justify-between">
+            <div>
+                <div class="flex gap-1 text-amber-400 text-sm mb-4">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-zinc-300 text-sm leading-relaxed italic">"Netflix Premium 4K b taman ghzal bzaf. L-akh Achraf dima thalla fia. Kan-nseh bihum kolchi s-hab."</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-3">
+                <div class="w-9 h-9 bg-red-950/60 rounded-full flex items-center justify-center text-red-400 font-bold text-sm">B</div>
+                <div>
+                    <p class="text-white font-semibold text-sm">Bilal M.</p>
+                    <p class="text-zinc-500 text-xs">Marrakech</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-28 px-6">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+            <p class="text-red-500 text-xs font-bold uppercase tracking-widest mb-3">Questions fréquentes</p>
+            <h2 class="text-3xl md:text-5xl font-black text-white">FAQ</h2>
+        </div>
+
+        <div class="space-y-3" id="faq-list">
+            <div class="faq-item p-5" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <span class="font-semibold text-white text-sm md:text-base">S'agit-il de comptes Netflix officiels ?</span>
+                    <i class="fas fa-chevron-down faq-chevron text-zinc-500 text-sm flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-zinc-400 text-sm leading-relaxed mt-3">Oui, absolument. Nos abonnements sont activés via des méthodes officielles. Vous profitez de toutes les fonctionnalités premium : profils personnalisables, contenu en Ultra HD 4K et Dolby Atmos.</p>
+                </div>
+            </div>
+            <div class="faq-item p-5" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <span class="font-semibold text-white text-sm md:text-base">Quelles sont les méthodes de paiement ?</span>
+                    <i class="fas fa-chevron-down faq-chevron text-zinc-500 text-sm flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-zinc-400 text-sm leading-relaxed mt-3">Nous acceptons les virements bancaires (CIH Bank, Al Barid Bank) et les transferts en espèces (Cash Plus, Wafacash) — les méthodes les plus courantes au Maroc.</p>
+                </div>
+            </div>
+            <div class="faq-item p-5" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <span class="font-semibold text-white text-sm md:text-base">Que faire si j'ai un problème avec le compte ?</span>
+                    <i class="fas fa-chevron-down faq-chevron text-zinc-500 text-sm flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-zinc-400 text-sm leading-relaxed mt-3">Nos comptes bénéficient d'une garantie complète pour toute la durée choisie. En cas de souci, contactez-nous sur WhatsApp et on résout ou remplace en quelques minutes.</p>
+                </div>
+            </div>
+            <div class="faq-item p-5" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center gap-4">
+                    <span class="font-semibold text-white text-sm md:text-base">Puis-je changer le mot de passe du compte ?</span>
+                    <i class="fas fa-chevron-down faq-chevron text-zinc-500 text-sm flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-zinc-400 text-sm leading-relaxed mt-3">Pour les formules à écran partagé, le mot de passe principal ne doit pas être modifié (compte partagé). Pour le Compte Full (6 mois), le compte vous appartient à 100% et vous pouvez tout modifier.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black border-t border-zinc-900 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-zinc-500">
+        <a href="#" class="flex items-center gap-2">
+            <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#E50914"/><path d="M12 9v14l12-7z" fill="white"/></svg>
+            <span class="zax text-lg text-white">ZAX<span class="text-red-600">STORE</span></span>
+        </a>
+
+        <nav class="flex flex-wrap items-center gap-5 justify-center text-xs">
+            <a href="offres.html" class="hover:text-white transition-colors">Offres</a>
+            <a href="#avantages" class="hover:text-white transition-colors">Avantages</a>
+            <a href="#processus" class="hover:text-white transition-colors">Commander</a>
+            <a href="#avis" class="hover:text-white transition-colors">Avis</a>
+            <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+        </nav>
+
+        <div class="flex flex-col items-center md:items-end gap-2">
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/212697999710" target="_blank" rel="noopener" class="hover:text-green-400 transition-colors"><i class="fab fa-whatsapp text-lg"></i></a>
+                <a href="https://www.instagram.com/nza_lala1" target="_blank" rel="noopener" class="hover:text-red-500 transition-colors"><i class="fab fa-instagram text-lg"></i></a>
+            </div>
+            <p class="text-xs">&copy; 2026 ZAX STORE. Tous droits réservés.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/212697999710?text=Salam%20ZAX%20STORE%2C%20je%20veux%20plus%20d%27infos%20sur%20vos%20abonnements." target="_blank" rel="noopener" class="wa-float" aria-label="Contacter sur WhatsApp">
+    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span class="wa-tooltip">Besoin d'aide ?</span>
+</a>
+
+<script>
+    // FAQ accordion
+    function toggleFaq(el) {
+        const isOpen = el.classList.contains('faq-open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
+        if (!isOpen) el.classList.add('faq-open');
+    }
+
+    // Sticky nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+    }, { passive: true });
+</script>
+</body>
+</html>
